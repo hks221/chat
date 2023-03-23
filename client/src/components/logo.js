@@ -5,7 +5,7 @@ const Logo =()=>{
         <>
             <div className='logo-holder'>
                 <div className='logo'>
-                <i className="ri-restaurant-line"></i>
+                <i class="ri-mental-health-fill"></i>
                 </div>
             </div>
            

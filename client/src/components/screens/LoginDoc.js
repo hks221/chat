@@ -5,7 +5,7 @@
   import Logo from "../logo";
   import M from "materialize-css"
 
-const Login=()=>{
+const LoginDoc=()=>{
   const {state,dispatch} = useContext(UserContext)
   const navigate = useNavigate();        /*instead of useHistory */
   const [password,setPassword]=useState("")
@@ -17,7 +17,7 @@ const Login=()=>{
         M.toast({html:"invalid email",classes:"#c62828 red darken-3"})
         return 
     }
-    fetch("/login",{
+    fetch("/loginDoc",{
       method:"post",
       headers:{
           "Content-Type":"application/json"
@@ -46,12 +46,11 @@ const Login=()=>{
     
 }
     return (
-        <div className="mycard ">
-         <div className="card auth-card input-field bg-body size">
-        
+        <div className="mycard">
+         <div className="card auth-card input-field bg-body">
+              <Logo/>
+            <h2>Healthy</h2>
          
-            <h2 >Healthy</h2>
-            <br/><br/>
             <input
             className="ip"
             
@@ -60,7 +59,6 @@ const Login=()=>{
             value={email}
               onChange={(e)=>setEmail(e.target.value)}          
             />
-            
             <input
            className="ip"
             type="password"
@@ -69,14 +67,14 @@ const Login=()=>{
               onChange={(e)=>setPassword(e.target.value)}
             />
            
-           <br/><br/>
+            
         <button onClick={()=>PostData()} className="btn waves-effect waves-light #64b5f6 blue darken-1">
               Login
                  </button>
-                   <br/><br/>
-            <h5 >
-                <Link to="/signup">Dont have an account ?</Link>
-                <br/><br/>
+             
+            <h5>
+                <Link to="/signupDoc">Dont have an account ?</Link>
+                <br/>
                 <Link to="/reset">Forgot Password ?</Link>
             </h5>
             </div>
@@ -84,4 +82,4 @@ const Login=()=>{
     )
 }
 
-export default Login;
+export default LoginDoc;

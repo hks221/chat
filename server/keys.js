@@ -1,4 +1,7 @@
 module.exports={
-    MONGOURI : "mongodb+srv://brute_force:chole_bhature@cluster0.ryvgsbp.mongodb.net/?retryWrites=true&w=majority",
+    MONGOURI : "mongodb+srv://harshsharma311003:ZUZCR6EUYP038YIH@cluster0.7vl6jzn.mongodb.net/?retryWrites=true&w=majority",
     JWT_SECRET:"fslkdjfsldfvijay"
 };
+
+// password health - ZUZCR6EUYP038YIH
+// mongodb+srv://harshsharma311003:ZUZCR6EUYP038YIH@cluster0.7vl6jzn.mongodb.net/?retryWrites=true&w=majority

@@ -3,10 +3,13 @@ import './App.css';
 import Navbar from "./components/Navbar"
 import {BrowserRouter,Routes,Route,useNavigate,useLocation} from "react-router-dom"
 import Home from "./components/screens/Home"
+import Health from "./components/screens/Health"
 import SignIn from "./components/screens/Login"
+import LoginDoc from "./components/screens/LoginDoc"
 import Profile from "./components/screens/Profile"
 import UserProfile from './components/screens/UserProfile'
 import SignUp from "./components/screens/Signup"
+import SignUpDoc from "./components/screens/SignupDoc"
 import CreateRecipe from "./components/screens/CreateRecipe"
 import SubscribedUserRecipe from './components/screens/SubscribesUserRecipe'
 import {reducer,initialState} from './reducers/userReducer'
@@ -29,13 +32,15 @@ const Routing = ()=>{
       dispatch({type:"USER",payload:user})
     }else{
       if(!location.pathname.startsWith('/reset'))
-      navigate("/login")
+      navigate("/health")
     }
   },[])
   return(
     <Routes>
       <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<SignIn />} />
+        <Route path="/loginDoc" element={<LoginDoc />} />
+        <Route path="/health" element={<Health />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/menu" element={<Menu />} /> 
         <Route path="/menu/south" element={<South/>} /> 
@@ -43,6 +48,7 @@ const Routing = ()=>{
         <Route path="/menu/chinese" element={<Chinese/>} /> 
         <Route path="/menu/continental" element={<Continental/>} /> 
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/signupDoc" element={<SignUpDoc />} />
         <Route path="/create" element={<CreateRecipe />} /> 
         <Route path="/profile/:userid" element={<UserProfile />} /> 
         <Route path="/myfollowingpost" element={<SubscribedUserRecipe/>} />

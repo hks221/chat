@@ -32,17 +32,7 @@ const NavBar = () => {
           </button>
         </li>
       ]
-    } else {
-      return [
-        <li key="6">
-          <Link to="/login">Signin</Link>
-        </li>,
-        <li key="7">
-          <Link to="/signup">Signup</Link>
-        </li>
-      ]
-
-    }
+    } 
   }
 
   const fetchUsers = (query)=>{
@@ -65,7 +55,7 @@ const NavBar = () => {
     <nav>
       <div className="nav-wrapper white">
         <Link to={state ? "/" : "/login"} className="brand-logo">
-          ZAAYKA
+          Healthy
         </Link>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           {renderList()}

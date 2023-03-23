@@ -58,9 +58,12 @@ a{
 /**/
 .bg-body{
   font-family: 'open Sans ',sans-serif;
-  color:white;
-  background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(bg.jpg);
-  background-size: cover;
+  /* color:white; */
+  background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(Mhealth.jpg);
+background-size: 170%;
+background-position-y: bottom;
+background-position-x: center;
+
 }
 .title{
   text-align: center;
@@ -76,15 +79,15 @@ a{
   width: 100px;
   height: 100px;
   border: solid white 2px;
-  border-radius: 50%;
+  border-radius: 70%;
   display: grid;
   place-items: center; 
-  font-size: 3rem;
+  font-size: 5rem;
 }
  
   .ip{
     background-color: rgba(208, 201, 221, 0.275);
-
+   font-size: 30px;
     border: none;
     color:black;
     padding: 0.5rem;
@@ -94,8 +97,10 @@ a{
     border-radius:5px;
   }
   .ip::placeholder{
+   
     color:rgb(0, 0, 0);
   }
+
   
  /* menu */
  .container{
@@ -128,3 +133,20 @@ a{
   text-align: center;
 }
 
+/*  health */
+/* .health{
+  background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(bg.jpg);
+} */
+.log-tag{
+  
+ text-align: center;
+}
+/* .user-doc{
+
+  text-align: right;
+  margin-right: 0%;
+} */
+.size{
+  
+  height: 520px;
+}

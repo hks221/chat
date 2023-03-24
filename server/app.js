@@ -29,15 +29,15 @@ app.use(
  
  app.use(express.json());
 
-//  import messageroute from './routes/messageroute'
- const messageroute =require("./routes/messageroute");
 
+ const messageroute =require("./routes/messageroute");
+ const chatroute = require("./routes/ChatRoute");
 
  app.use(require('./routes/auth'));
  app.use(require('./routes/recipe'));
  app.use(require('./routes/user'));
- app.use(require('./routes/ChatRoute'));
-//  app.use(require('./routes/messageroute'));
+
+ app.use('/chat',chatroute)
  app.use('/message',messageroute) 
 
 app.listen(PORT,()=>{

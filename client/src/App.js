@@ -20,6 +20,7 @@ import South from "./components/screens/South"
 import North from "./components/screens/North"
 import Chinese from './components/screens/Chinese';
 import Continental from './components/screens/Continental';
+import Chat from "./components/screens/Chat"
 export const UserContext = createContext()
 
 const Routing = ()=>{
@@ -29,6 +30,7 @@ const Routing = ()=>{
   useEffect(()=>{
     const user = JSON.parse(localStorage.getItem("user"))
     if(user){
+     
       dispatch({type:"USER",payload:user})
     }else{
       if(!location.pathname.startsWith('/reset'))
@@ -54,12 +56,14 @@ const Routing = ()=>{
         <Route path="/myfollowingpost" element={<SubscribedUserRecipe/>} />
         <Route exact path="/reset" element={<Reset />} />
         <Route path="/reset/:token" element={<NewPassword />} /> 
+        <Route path="/chat" element={<Chat /> } /> 
     </Routes>
   )
 }
 
 function App() {
   const [state,dispatch] = useReducer(reducer,initialState)
+  
   return (
     <UserContext.Provider value={{state,dispatch}}>
     <BrowserRouter>

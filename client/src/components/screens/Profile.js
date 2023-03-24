@@ -7,6 +7,7 @@ const Profile = () => {
     const [mypics, setPics] = useState([])
     const { state, dispatch } = useContext(UserContext)
     const [image,setImage] = useState("")
+    const [chat,setChats] = useState([])
 
     useEffect(() => {
         fetch("/myrecipe", {
@@ -20,7 +21,18 @@ const Profile = () => {
             
         })
 }, [])
-
+// useEffect(() => {
+//     fetch("/mychat", {
+//         headers: {
+//         "Authorization": "Bearer " + localStorage.getItem("jwt")
+//     }
+//     }).then(res => res.json())
+//     .then(result => {
+//         console.log(result);
+//         setChats(result.mychat)
+        
+//     })
+// }, [])
 useEffect(()=>{
     if(image){
      const data = new FormData()

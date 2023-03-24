@@ -1,8 +1,13 @@
 const express = require("express"); 
 const router = express.Router();
 const mongoose = require('mongoose');
+
+
+
+
 const requireLogin=require("../middleware/requireLogin");
 const Recipe=mongoose.model("Recipe");
+const Chat=mongoose.model("Chat");
 
 
 //for all recipes 
@@ -16,6 +21,15 @@ router.get("/allrecipe",requireLogin,(req,res)=>{
     })
     .catch(err=>{
         console.log(err)
+    })
+})
+router.get("/allchat",requireLogin,(req,res)=>{
+    Chat.find()                         //finding all posts  without any condition 
+    .then(chats=>{
+        res.json({chats})   
+    })
+    .catch(err=>{
+        console.log(err+"yes")
     })
 })
 
@@ -123,6 +137,16 @@ router.get("/myrecipe",requireLogin,(req,res)=>{
         console.log(err)
     })
 })
+// router.get("/mychat",(req,res)=>{  
+//     Chat.find()  
+//     .then(mychats=>{
+//         res.json({mychats})
+//     })
+//     .catch(err=>{
+//         console.log(err)
+//     })
+   
+// })
 
 router.put('/like',requireLogin,(req,res)=>{
       Recipe.findByIdAndUpdate(req.body.postId,{

@@ -1,9 +1,20 @@
 //jshint esversion:6
+// header('Access-Control-Allow-Origin: *');
+
 const express = require("express");
 const app = express();
 var mongoose = require("mongoose");
 const PORT = 5000;
 const {MONGOURI} = require('./keys');
+
+// import cors from "cors";
+const cors = require('cors');
+// const io = require("socket.io")({
+//     allowEIO3: true
+// });
+app.use(cors());
+// header('Access-Control-Allow-Credentials: true');
+
 
 mongoose.set('strictQuery', true);
 mongoose.connect(MONGOURI,{
@@ -39,6 +50,9 @@ app.use(
 
  app.use('/chat',chatroute)
  app.use('/message',messageroute) 
+
+ 
+
 
 app.listen(PORT,()=>{
     console.log("Server is running at port 5000");

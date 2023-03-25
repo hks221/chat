@@ -5,11 +5,18 @@ import InputEmoji from "react-input-emoji"
 import "./ChatBox.css";
 import {addMessage} from "../../api/MessageRequest"
 
-const ChatBox = ({ chat, currentUser ,setSendMessage}) => {
+const ChatBox = ({ chat, currentUser ,setSendMessage,recieveMessage}) => {
 
     const [userData, setUserData] = useState(null)
     const [messages, setMessages] = useState([])
     const [newMessage, setNewMessage] = useState("")
+
+    useEffect(()=> {
+        if(recieveMessage !==null && recieveMessage.chatId === chat._id){
+            setMessages([...messages,recieveMessage])
+        }
+        
+    },[recieveMessage])
     //fetching data from header
     useEffect(() => {
         const userid = chat?.members?.find((id) => id !== currentUser);
@@ -51,7 +58,7 @@ const ChatBox = ({ chat, currentUser ,setSendMessage}) => {
         const message = {
             senderId : currentUser,
             text : newMessage,
-            chatid:chat.id,
+            chatid:chat._id,
         }
 
         //sending message to database 

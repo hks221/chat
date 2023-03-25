@@ -10,6 +10,9 @@ const ChatBox = ({ chat, currentUser ,setSendMessage,recieveMessage}) => {
     const [userData, setUserData] = useState(null)
     const [messages, setMessages] = useState([])
     const [newMessage, setNewMessage] = useState("")
+    const handleChange = (newMessage) => {
+        setNewMessage(newMessage)
+    }
 
     useEffect(()=> {
         if(recieveMessage !==null && recieveMessage.chatId === chat._id){
@@ -49,9 +52,7 @@ const ChatBox = ({ chat, currentUser ,setSendMessage,recieveMessage}) => {
         if (chat !== null) fetchMessages();
     }, [chat]);
 
-    const handleChange = (newMessage) => {
-        setNewMessage(newMessage)
-    }
+  
     
     const handleSend = async (e) => {
         e.preventDefault();
@@ -60,7 +61,7 @@ const ChatBox = ({ chat, currentUser ,setSendMessage,recieveMessage}) => {
             text : newMessage,
             chatid:chat._id,
         }
-
+       console.log(message);
         //sending message to database 
         try {
             const {data}=await addMessage(message);

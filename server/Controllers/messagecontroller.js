@@ -3,6 +3,7 @@ const MessageModel = mongoose.model("Message")
 
 const addmessage = async(req,res)=>{
     const {chatId,senderId,text} =req.body
+    console.log(chatId)
     const message = new MessageModel({
         chatId,
         senderId,

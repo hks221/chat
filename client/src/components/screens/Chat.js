@@ -43,6 +43,8 @@ const Chat = () =>{
     //receive message from socket server
     useEffect(()=>{
         socket.current.on("receive-message", (data) =>{
+            console.log(".........................")
+            console.log(data);
             setRecieveMessage(data)
         })
     })
@@ -80,7 +82,7 @@ const Chat = () =>{
                         <div onClick={() => setCurrentChat(chat)}>
                             <Conversation data={chat} currentUserId={state._id} />
                           
-                           <h1>Conversation</h1> 
+                           {/* <h1>Conversation</h1>  */}
                         </div>
 
                     ))}

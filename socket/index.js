@@ -34,10 +34,16 @@ io.on("connection", (socket) => {
     //send message 
     socket.on("send-message",(data) => {
         const {receiverId} = data;
+        console.log("river1");
+        console.log(receiverId);
+        console.log("river2");
+        console.log(activeUsers.find((user)=> user.userId === receiverId))
         const user = activeUsers.find((user)=> user.userId === receiverId)//searching the receiver inside active users 
         console.log("Sending from socket to :",receiverId);
         console.log("Data",data);
+        console.log(user);
         if(user){
+            console.log("river");
             io.to(user.socketId).emit("receive-message", data)
         }
     })   
